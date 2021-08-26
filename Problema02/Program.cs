@@ -11,8 +11,22 @@ namespace Problema02
 
             num1 = 30;
             num2 = 60;
-            result = Convert.ToByte(num1 * num2);
-            Console.WriteLine("{0} x {1} = {2}", num1, num2, result);
+            try
+            {
+                result = Convert.ToByte(num1 * num2);
+                Console.WriteLine("{0} x {1} = {2}", num1, num2, result);
+            }
+            catch (OverflowException ex)
+            {
+                Console.WriteLine("\n\nIngresó un número demasiado grande o pequeño\n");
+                Console.WriteLine("{0}\n", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocurrió algo inesperado\n");
+                Console.WriteLine("{0}\n", ex.Message);
+            }
+
             Console.ReadLine();
         }
     }

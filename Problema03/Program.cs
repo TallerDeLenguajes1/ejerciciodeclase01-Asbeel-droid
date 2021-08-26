@@ -48,8 +48,21 @@ namespace Problema03
 
         static void MostrarAuto(Auto auto)
         {
-            Console.WriteLine("{0} - {1}", auto.Modelo, auto.Anio);
-            Console.ReadLine();
+            try
+            {
+                Console.WriteLine("{0} - {1}", auto.Modelo, auto.Anio);
+                //Console.ReadLine();
+            }
+            catch (NullReferenceException ex)
+            {
+                Console.WriteLine("Error, referencia a objeto que aún no se a establecida como instancia de un objeto.");
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
         }
     }
 }

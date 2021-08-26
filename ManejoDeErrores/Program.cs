@@ -13,10 +13,23 @@ namespace ManejoDeErrores
             list[3] = "Wednesday";
             list[4] = "Thursday";
 
-            for (int i = 0; i <= 5; i++)
+            try
             {
-                Console.WriteLine(list[i].ToString());
+                for (int i = 0; i <= 5; i++)
+                {
+                    Console.WriteLine(list[i].ToString());
+                }
             }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine("Error, el índice esta fuera de los límites del arreglo.");
+                Console.WriteLine("{0}", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocurrió algo inesperado!!");
+            }
+
             Console.ReadLine();
         }
     }
